@@ -3,15 +3,31 @@ const path = require("path");
 
 const app = express();
 
-/**
- * Solución para los archivos staticos (css,img)
- */
+// Solución para los archivos staticos (css,img)
 app.use(express.static("public"));
+
+/*let paginas = [
+  "babbage",
+  "berners-lee",
+  "clarke",
+  "hamilton",
+  "hopper",
+  "lovelace",
+  "turing",
+];
+
+/*paginas.forEach((pag) => {
+  app.get("/" + pag, (req, res) => {
+    let htmlPath = path.resolve(__dirname, "./views/" + pag + ".html");
+    res.sendFile(htmlPath);
+  });
+});*/
 
 app.get("/", (req, res) => {
   let htmlPath = path.resolve(__dirname, "./views/index.html");
   res.sendFile(htmlPath);
 });
+
 app.get("/babbage", (req, res) => {
   let htmlPath = path.resolve(__dirname, "./views/babbage.html");
   res.sendFile(htmlPath);
